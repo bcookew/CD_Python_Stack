@@ -60,10 +60,10 @@ dojo = {
 }
 
 def printInfo(some_dict):
-    for key, lst in some_dict.items():
-        print(len(some_dict[key]), key.upper())
-        for val in lst:
-            print(val)
+    for key_name, list_at_key in some_dict.items():
+        print(len(some_dict[key_name]), key_name.upper())
+        for name_in_list in list_at_key:
+            print(name_in_list)
         print("\n")
 
 printInfo(dojo)
