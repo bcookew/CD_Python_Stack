@@ -28,7 +28,6 @@ function revStr(strOld, space) {
             if(strOld[i] != " "){
                 newStr += strOld[i];
             }
-
         }
     }
     return newStr;
