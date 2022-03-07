@@ -20,9 +20,9 @@ class User:
         self.balance -= amount
         user2.balance += amount
 
-ben = User("Benjamin", "Ben@bank.com", 1000)
-jack = User("Jack", "Jack@bank.com", 500)
-antony = User("Antony", "Antony@bank.com", 10000)
+ben = User("Benjamin", "Ben@bank.com")
+jack = User("Jack", "Jack@bank.com")
+antony = User("Antony", "Antony@bank.com")
 
 ben.makeDeposit(100)
 ben.makeDeposit(100)
