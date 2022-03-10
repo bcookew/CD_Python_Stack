@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <!-- link to flask driven stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css')}}">
+    <!-- link to flask driven JS file -->
+    <script type="text/javascript" src="{{ url_for('static',filename='./js/script.js') }}"></script>
+    <style>
+        .boxAlt:nth-of-type(odd) {
+            background-color: {{color2}};
+        }
+
+        .box:nth-of-type(even) {
+            background-color: {{color2}};
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header row">
+            <h1>Checkerboard!</h1>
+        </div>
+        <div class="board" style="background-color: {{ color1 }}">
+            {% for i in range(rows) %}
+                {% if i%2 == 0 %}
+                    <div class="row">
+                        {% for i in range(columns) %}
+                            <div class="box"></div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="row">
+                        {% for i in range(columns) %}
+                            <div class="boxAlt"></div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
