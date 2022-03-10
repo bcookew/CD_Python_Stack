@@ -19,7 +19,6 @@
 
 function bookIndex(input) {
     let output = [];
-    var strTemp = ""
     for(var i = 0; i< input.length; i++){ //starting for loop to iterate through array
         if(input[i+1] === (input[i] + 1)){ //conditional to check if next number is sequential to current index
             var start = input[i] //holding variable for value at starting index 
