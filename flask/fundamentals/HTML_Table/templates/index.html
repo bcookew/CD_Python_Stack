@@ -9,30 +9,36 @@
     <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
   </head>
   <body>
-    <div class="container">
+    <div class="container mw-75">
       <!-- content here -->
       <ul class="h-menu bg-cyan">
         <li>
-          <button class="button square bg-cyan">
-            <span class="mif-home"></span>
-          </button>
+          <a href="/">
+              <span class="mif-home"></span>
+          </a>
         </li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Support</a></li>
-        <li><a href="#">Cart</a></li>
+        <li><a href="https://www.CodingDojo.com">Coding Dojo</a></li>
+        <li><a href="https://www.LinkedIn.com/in/BenCW">LinkedIn</a></li>
+        <li><a href="https://www.github.com/BCookeW">GitHub</a></li>
       </ul>
-      <table class="table">
+      <table class="table compact table-border row-border striped row-hover">
         <thead>
         <tr>
-            <th class="sortable-column">#</th>
-            <th class="sortable-column">First Name</th>
-            <th class="sortable-column sort-asc">Last Name</th>
-            <th class="sortable-column">Username</th>
+            <th>User Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Full Name</th>
         </tr>
         </thead>
         <tbody>
-        ...
+          {% for i in range(userCount): %}
+            <tr>
+              <td class=>{{i}}</td>
+              <td class=>{{users[i]["first_name"]}}</td>
+              <td class=>{{users[i]["last_name"]}}</td>
+              <td class=>{{users[i]["first_name"]}} {{users[i]["last_name"]}}</td>
+            </tr>
+          {% endfor %}  
         </tbody>
     </table>
 
