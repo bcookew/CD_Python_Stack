@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Great Number Game!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/72cf54f64d.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <section class="section">
+        <div class="columns">
+
+            <div class="column"></div>
+            <div class="m-6 p-6 column is-one-third has-background-info">
+                <div class="container is-flex is-flex-direction-column is-align-items-center mb-6">
+                    <h1 class="title is-2  has-text-light">
+                        The Great Number Game!
+                    </h1>
+                    <h2 class="subtitle is-6 has-text-light">
+                        Try and guess the randomly generated number in the range 1-100!
+                    </h2>
+                </div>
+                <form action="/guess" method="post">
+                    <div class="field">
+                        <label class="label has-text-light is-size-5" for="guess">Take a guess!</label>
+                        <div class="control">
+                            <input class="input is-large has-text-centered" autocomplete="off" type="text" name="guess" placeholder="Make your guess here!">
+                        </div>
+                    </div>
+                    <div class="box has-text-centered {{color}} is-size-5">{{hiLow}}</div>
+                    <div class="field is-grouped mt-5 is-flex is-justify-content-space-between">
+                        <div class="control">
+                            <input class="button is-light" type="submit" value="Submit">
+                        </div>
+                        <div class="control">
+                            <a href="/reset" class="button is-outline is-warning">New Round</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="column"></div>
+        </div>
+    </section>
+</body>
+
+</html>
