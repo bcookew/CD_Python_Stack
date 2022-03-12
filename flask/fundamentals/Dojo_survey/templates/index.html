@@ -13,7 +13,7 @@
 <body>
     <section class="section">
         <div class="columns">
-            
+
             <div class="column"></div>
             <div class="m-6 p-6 column is-half has-background-dark">
                 <div class="container is-flex is-flex-direction-column is-align-items-center mb-6">
@@ -24,73 +24,75 @@
                         My first website with <strong class="has-text-light">Bulma</strong>!
                     </p>
                 </div>
-                <div class="field">
-                    <label class="label has-text-light">Name</label>
-                    <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="Name input">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-user"></i>
-                        </span>
-                    </div>
-                </div>
-    
-                <div class="field">
-                    <label class="label has-text-light">Email</label>
-                    <div class="control has-icons-left">
-                        <input class="input" type="email" placeholder="Email input" value="">
-                        <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
-                        </span>
-                    </div>
-                </div>
-    
-                <div class="field">
-                    <label class="label has-text-light">Location</label>
-                    <div class="control is-expanded">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>Chicago</option>
-                                <option>Seattle</option>
-                                <option>Online</option>
-                                <option>Burbank</option>
-                                <option>Bellevue</option>
-                            </select>
+                <form action="/submit" method="post">
+                    <div class="field">
+                        <label class="label has-text-light" for="name">Name</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" name="name" placeholder="Name input">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
                         </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label has-text-light">Favorite Language</label>
-                    <div class="control is-expanded">
-                        <div class="select is-fullwidth">
-                            <select>
-                                <option>Chef</option>
-                                <option>HTML</option>
-                                <option>CSS</option>
-                                <option>JavaScript</option>
-                                <option>Python</option>
-                                <option>C#</option>
-                                <option>Java</option>
-                            </select>
+                    <div class="field">
+                        <label class="label has-text-light" for="email">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" name="email" placeholder="Email input" value="">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
                         </div>
                     </div>
-                </div>
 
-                <div class="field">
-                    <label class="label has-text-light">Comment (optional)</label>
-                    <div class="control">
-                        <textarea class="textarea" placeholder="Leave us a comment..."></textarea>
+                    <div class="field">
+                        <label class="label has-text-light" for="campus">campus</label>
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select name="campus">
+                                    <option value="Chicago">Chicago</option>
+                                    <option value="Seatlle">Seattle</option>
+                                    <option value="Online">Online</option>
+                                    <option value="Burbank">Burbank</option>
+                                    <option value="Bellevue">Bellevue</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                </div>
-    
-                <div class="field is-grouped mt-5 is-flex is-justify-content-space-between">
-                    <div class="control">
-                        <button class="button is-link">Submit</button>
+
+                    <div class="field">
+                        <label class="label has-text-light">Favorite Language</label>
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select name="favLang">
+                                    <option value="Chef">Chef</option>
+                                    <option value="HTML">HTML</option>
+                                    <option value="CSS">CSS</option>
+                                    <option value="JavaScript">JavaScript</option>
+                                    <option value="Python">Python</option>
+                                    <option value="C#">C#</option>
+                                    <option value="Java">Java</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="control">
-                        <button class="button is-danger">Clear Form</button>
+
+                    <div class="field">
+                        <label class="label has-text-light" for="comment">Comment (optional)</label>
+                        <div class="control">
+                            <textarea class="textarea" name="comment" placeholder="Leave us a comment..."></textarea>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="field is-grouped mt-5 is-flex is-justify-content-space-between">
+                        <div class="control">
+                            <input class="button is-success" type="submit" value="Submit">
+                        </div>
+                        <div class="control">
+                            <input class="button is-danger" type="reset" value="Reset input">
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="column"></div>
         </div>

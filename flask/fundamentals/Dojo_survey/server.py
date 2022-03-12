@@ -1,25 +1,28 @@
-from flask import Flask, render_template, session, redirect
+from flask import Flask, render_template, session, redirect, request
 
 app = Flask(__name__)
 app.secret_key = "skdflaiudbvlialvsdfvb82772fr982h89yfrh"
 
 @app.route('/')
 def index():
-    if "counter" not in session:
-        session["counter"] = 1
-    else: 
-        session["counter"] += 1
+    return render_template('index.html')
 
-    return render_template('index.html', counter=session["counter"])
+@app.route('/submit', methods=["POST"])
+def submit():
+    print(request.form)
+    for key in request.form:
+        session[key] = request.form[key]
+    return redirect('/submitted')
 
-@app.route('/2')
-def plus2():
-    session["counter"] += 2
+@app.route('/submitted')
+def submitted():
+    details = {}
+    for key in session:
+        details[key] = session[key]
+    return render_template('submitted.html', **details)
 
-    return render_template('index.html', counter=session["counter"])
-
-@app.route('/reset')
-def reset():
+@app.route('/clear')
+def clear():
     session.clear()
     return redirect('/')
 
