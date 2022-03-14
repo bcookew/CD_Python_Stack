@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "foundation-sites": "^6.7.4",
+    "jquery": "^3.6.0",
+    "webp-converter": "^2.3.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.4.1",
+    "grunt-contrib-sass": "^2.0.0"
+  }
+}

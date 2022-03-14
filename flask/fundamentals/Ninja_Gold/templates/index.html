@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Dojo | Ninja Game</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+
+  <!-- Start Top Bar -->
+  <div class="title-bar" data-responsive-toggle="mainNavigation" data-hide-for="medium">
+    <div class="title-bar-left">
+      <button class="menu-icon" type="button" data-toggle="mainNavigation"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="title-bar-right">
+      Ninja Gold
+    </div>
+  </div>
+
+  <div class="top-bar" id="mainNavigation">
+    <div class="top-bar-left">
+      <ul class="menu vertical medium-horizontal">
+        <li class="menu-text hide-for-small-only">Ninja Gold Game</li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/newGame">New Game</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu vertical medium-horizontal">
+        <li class="menu-text hide-for-small-only">Benjamin Williams</li>
+      </ul>
+    </div>
+  </div>
+  <!-- End Top Bar -->
+
+  <div class="text-center margin-top-2">
+    <h2>Ninja Gold</h2>
+  </div>
+
+  <article class="grid-container">
+    <hr>
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-4 medium-3 large-2 input-group">
+        <span class="input-group-label">Gold:</span>
+        <input class="input-group-field" readonly="readonly" type="number" value="{{playerGold}}">
+      </div>
+    </div>
+    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-4 align-center">
+      <form action="/process_money" method="post" class="cell text-center">
+        <img alt="illustration of a farm" class="thumbnail" src="{{url_for('static', filename='img/farm.webp')}}">
+        <h3>Farm</h3>
+        <p>(earns 10-20 gold)</p>
+        <input type="hidden" name="location" value="farm">
+        <input type="submit" value="Find Gold!" class="button large warning">
+      </form>
+      <hr class="cell margin-bottom-2 hide-for-medium">
+      <form action="/process_money" method="post" class="cell text-center">
+        <img alt="illustration of a cave" class="thumbnail" src="{{url_for('static', filename='img/cave.webp')}}">
+        <h3>Cave</h3>
+        <p>(earns 5-10 gold)</p>
+        <input type="hidden" name="location" value="cave">
+        <input type="submit" value="Find Gold!" class="button large warning">
+      </form>
+      <hr class="grid-frame margin-horizontal-1 margin-bottom-2 hide-for-large">
+      <!-- <hr class="cell margin-bottom-2 margin-left-0 hide-for-large"> -->
+      <form action="/process_money" method="post" class="cell text-center">
+        <img alt="illustration of house" class="thumbnail" src="{{url_for('static', filename='img/house.webp')}}">
+        <h3>House</h3>
+        <p>(earns 2-5 gold)</p>
+        <input type="hidden" name="location" value="house">
+        <input type="submit" value="Find Gold!" class="button large warning">
+      </form>
+      <hr class="cell margin-bottom-2 hide-for-medium">
+      <form action="/process_money" method="post" class="cell text-center">
+        <img alt="illustration of a casino" class="thumbnail" src="{{url_for('static', filename='img/casino.webp')}}">
+        <h3>Casino</h3>
+        <p>(earn or lose 0-50 gold)</p>
+        <input type="hidden" name="location" value="casino">
+        <input type="submit" value="Spin the wheel!" class="button large alert">
+      </form>
+      <hr>
+    </div>
+    <fieldset class="fieldset">
+      <legend>Activity:</legend>
+      {% for activity in activities: %}
+        {{activity|safe}}
+      {% endfor %}
+
+    </fieldset>
+    
+  </article>
+
+  <script src="{{url_for('static', filename='/js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static', filename='/js/foundation.min.js')}}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+
+</html>
