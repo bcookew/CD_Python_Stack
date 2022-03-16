@@ -31,7 +31,7 @@ class SLList{
     }
 
     removeFromFront(){
-        let oldHead = this.head.next
+        let oldHead = this.head
         this.head = this.head.next
         oldHead.next = null
         return this
@@ -126,15 +126,14 @@ ls = new SLList()
 ls.addToFront(10).addToFront(9).addToFront(8).addToFront(7).addToFront(6).addToFront(5)
 
 
-ls.printList()
+// ls.printList()
 
 ls.addToBack(22)
 
 // ls.nodesToList();
 ls.print()
-ls.insertMiddle(682);
+// ls.insertMiddle(682);
 ls.print()
 ls.removeFromBack().removeFromFront()
-ls.print()
-console.log(ls.contains(8))
-console.log(ls)
+ls.printList()
+// console.log(ls.contains(8))
