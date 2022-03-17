@@ -33,7 +33,7 @@ class User:
 
     @classmethod
     def updateUser(cls, data):
-        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(id)s"
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s, updated_at = NOW() WHERE id = %(id)s"
         return MySQLConnection("users_schema").query_db(query,data)
         
     @classmethod
