@@ -2,3 +2,4 @@ flask/fundamentals/Ninja_Gold/node_modules
 mysql/erd
 mysql/queries
 flask_mysql/db_connection/ninjas
+flask_mysql/crud/users_cr/node_modules
