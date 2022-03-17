@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User CR | Benjamin C Williams</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+</head>
+
+<body>
+    <h1 class="centered">Add User</h1>
+    <div class="grid-container width-50">
+      <form action="/creatingUser" class="centered" method="post">
+        <div class="input-group">
+          <span class="input-group-label">First Name</span>
+          <input name="first_name" class="input-group-field" type="text">
+        </div>
+        <div class="input-group">
+          <span class="input-group-label">Last Name</span>
+          <input name="last_name" class="input-group-field" type="text">
+        </div>  
+        <div class="input-group">
+          <span class="input-group-label">eMail</span>
+          <input name="email" class="input-group-field" type="text">
+        </div>
+        <input type="submit" class="button" value="Add User">
+      </form>
+    </div>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+
+</html>

@@ -1,5 +1,5 @@
 from flask_app import app
-from flask_app.controllers import homepage
+from flask_app.controllers import users
 
 
 if __name__ == "__main__":
