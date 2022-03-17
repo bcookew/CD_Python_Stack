@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User CRUD | Benjamin C Williams</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+</head>
+
+<body>
+  <div class="grid-container user-card">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">User CRUD</li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <h2>User {{user.id}} Profile Data</h2>
+    <form class="centered">
+      <input type="hidden" name="id" value="{{user.id}}">
+      <div class="grid-x">
+        <div class="cell medium-6 input-group">
+          <span class="input-group-label">First Name</span>
+          <input name="first_name" class="input-group-field margin-right-1" type="text" value="{{ user.first_name }}"
+            readonly="readonly">
+        </div>
+        <div class="cell medium-6 input-group">
+          <span class="input-group-label margin-left-1">Last Name</span>
+          <input name="last_name" class="input-group-field" type="text" value="{{ user.last_name }}"
+            readonly="readonly">
+        </div>
+      </div>
+      <div class="input-group">
+        <span class="input-group-label width-25">eMail</span>
+        <input name="email" class="input-group-field" type="text" value="{{ user.email }}" readonly="readonly">
+      </div>
+      <div class="input-group">
+        <span class="input-group-label width-25">Joined</span>
+        <input name="email" class="input-group-field" type="text" value="{{ user.created_at }}" readonly="readonly">
+      </div>
+      <div class="input-group">
+        <span class="input-group-label width-25">Updated</span>
+        <input name="email" class="input-group-field" type="text" value="{{ user.updated_at }}" readonly="readonly">
+      </div>
+    </form>
+    <div class="grid-x align-justify">
+      <a class="button warning" href="/updateUser/{{ user.id }}">Edit</a>
+      <button class="button alert" data-open="deleteData">Delete</button>
+    </div>
+  </div>
+
+  <div class="reveal" id="deleteData" data-reveal>
+    <h1 class="centered">Confirm Delete?</h1>
+    <div class="grid-container">
+      <form action="/delete" class="centered" method="post">
+        <input type="hidden" name="id" value="{{user.id}}">
+        <input type="submit" class="button alert" value="Delete">
+      </form>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+
+
+
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/foundation.core.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.reveal.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.keyboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.touch.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.triggers.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.mediaQuery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.motion.js') }}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+
+</html>

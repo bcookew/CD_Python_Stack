@@ -3,3 +3,4 @@ mysql/erd
 mysql/queries
 flask_mysql/db_connection/ninjas
 flask_mysql/crud/users_cr/node_modules
+flask_mysql/crud/users_crud/node_modules
