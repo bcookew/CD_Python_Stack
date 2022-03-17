@@ -7121,7 +7121,7 @@ ol.list-upper-roman {
   max-width: 600px;
 }
 
-input:read-only {
+input[type=text]:read-only {
   background-color: white;
 }
 
