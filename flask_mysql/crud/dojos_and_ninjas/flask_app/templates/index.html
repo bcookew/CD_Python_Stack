@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User CRUD | Benjamin C Williams</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+</head>
+
+<body>
+  <div class="grid-container">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">User CRUD</li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <h1 class="centered">User List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th class="show-for-medium">eMail Address</th>
+          <th class="show-for-large">Created At</th>
+          <th class="show-for-large">Updated At</th>
+          <th class="centered">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users: %}
+        <tr>
+          <td>{{ user.last_name }}, {{ user.first_name }}</td>
+          <td class="show-for-medium">{{ user.email }}</td>
+          <td class="show-for-large">{{ user.created_at }}</td>
+          <td class="show-for-large">{{ user.updated_at }}</td>
+          <td>
+            <div class="button-group tiny align-center">
+              <a class="button" href="/profile/{{ user.id }}">Show</a>
+              <a class="button" href="/updateUser/{{ user.id }}">Edit</a>
+              <a class="button" href="/delete/{{user.id}}">Delete</a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="grid-x grid-margin-x grid-padding-x align-center">
+      <a class="centered button" data-open="updateData">Add User</a>
+    </div>
+
+  </div>
+
+  <div class="reveal" id="updateData" data-reveal>
+    <h1 class="centered">Create a user</h1>
+    <div class="grid-container">
+      <form action="/creatingUser" class="centered" method="post">
+        <div class="input-group">
+          <span class="input-group-label">First Name</span>
+          <input name="first_name" class="input-group-field" type="text">
+        </div>
+        <div class="input-group">
+          <span class="input-group-label">Last Name</span>
+          <input name="last_name" class="input-group-field" type="text">
+        </div>  
+        <div class="input-group">
+          <span class="input-group-label">eMail</span>
+          <input name="email" class="input-group-field" type="text">
+        </div>
+        <input type="submit" class="button success" value="Add User">
+      </form>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+
+
+
+  <!-- foundation and jquery cript imports -->
+  
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/foundation.core.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.reveal.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.keyboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.touch.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.triggers.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.mediaQuery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.motion.js') }}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+
+</html>

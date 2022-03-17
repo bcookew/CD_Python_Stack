@@ -5,3 +5,4 @@ flask_mysql/db_connection/ninjas
 flask_mysql/crud/users_cr/node_modules
 flask_mysql/crud/users_crud/node_modules
 flask_mysql/crud/users_crud.zip
+flask_mysql/crud/dojos_and_ninjas/node_modules
