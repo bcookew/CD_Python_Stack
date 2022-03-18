@@ -1,5 +1,5 @@
 npm install --save-dev grunt grunt-contrib-sass webp-converter jquery foundation-sites
-pipenv install flask pymysql
+pipenv install flask pymysql flask-bcrypt
 
 ---------------------------------------------------------------------
 
