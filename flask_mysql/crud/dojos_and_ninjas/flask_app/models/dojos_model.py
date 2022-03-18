@@ -32,13 +32,13 @@ class Dojo:
                     WHERE dojos.id = %(id)s
                     """
         returnedData = MySQLConnection('dojos_and_ninjas_schema').query_db(query, data)
-        r = 1
-        for row in returnedData:
-            print(f"\nRow {r}:")
-            for key, value in row.items():
-                print(key," : ", value)
-            print("\n")
-            r += 1 
+        # r = 1
+        # for row in returnedData:
+        #     print(f"\nRow {r}:")
+        #     for key, value in row.items():
+        #         print(key," : ", value)
+        #     print("\n")
+        #     r += 1 
         dojo_instance = cls(returnedData[0])
         for row in returnedData:
             ninja_instance = Ninja({
