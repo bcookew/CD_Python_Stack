@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dojos and Ninjas | Benjamin C Williams</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+</head>
+
+<body>
+  <div class="grid-container user-card">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Dojos and Ninjas</li>
+          <li><a href="/dojos">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <h3 class="text-center margin-top-2">Add New Ninja</h3>
+    <form action="/adding" method="post">
+      <div class="grid-x align-justify padding-horizontal-2">
+        <label class="middle">First Name
+          <input name="first_name" type="text" required>
+        </label>
+        <label class="middle">Last Name
+          <input name="last_name" type="text" required>
+        </label>
+      </div>
+      <div class="grid-x align-justify padding-horizontal-2">
+        <label class="middle">Age
+          <input name="age" type="text" required>
+        </label>
+        <label for="dojo_id" class="middle">Dojo
+          <select name="dojo_id">
+            {% for dojo in dojos: %}
+              <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+            {% endfor %}
+          </select>
+        </label>  
+      </div>
+      <div class="grid-x align-center margin-top-2">
+        <input type="submit" class="button success expanded width-50" value="Add Ninja">
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+
+</html>

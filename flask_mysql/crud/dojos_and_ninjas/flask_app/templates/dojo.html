@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dojos and Ninjas | Benjamin C Williams</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}" />
+</head>
+
+<body>
+  <div class="grid-container user-card">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="menu-text">Dojos and Ninjas</li>
+          <li><a href="/dojos">Home</a></li>
+        </ul>
+      </div>
+    </div>
+    <h3>{{ dojo.name }} <small>Ninja List</small> </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th class="show-for-medium">Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ninja in dojo.ninjas: %}
+        <tr>
+          <td>{{ ninja.first_name }}</td>
+          <td>{{ ninja.last_name }}</td>
+          <td class="show-for-medium">{{ ninja.age }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+
+
+  <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/foundation.core.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.reveal.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.keyboard.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.touch.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.triggers.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.mediaQuery.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/foundation.util.motion.js') }}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+
+</body>
+
+</html>
