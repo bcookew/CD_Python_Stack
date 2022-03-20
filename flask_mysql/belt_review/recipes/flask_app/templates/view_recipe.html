@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration | B C Williams
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+
+<body>
+    <div class="user-home">
+        <div class="button-group">
+            <button><a href="/logout">Log Off</a></button>
+            <button><a href="/dashboard">Dashboard</a></button>
+        </div>
+        <form>
+            <h2 class="align-center">Your Recipe</h2>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="name">Recipe Name</label>
+                <div class="col-sm-9">
+                    <input readonly type="text" class="form-control-plaintext" name="name" value="{{recipe.name}}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="description">Description</label>
+                <div class="col-sm-9">
+                    <textarea readonly cols="50" class="form-control-plaintext" name="description">{{recipe.description}}</textarea>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="instructions">Instructions</label>
+                <div class="col-sm-9">
+                    <textarea readonly class="form-control-plaintext" name="instructions">{{recipe.instructions}}</textarea>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="made_on">Date Made</label>
+                <div class="col-sm-9">
+                    <input readonly type="date" class="form-control-plaintext" name="made_on" value="{{recipe.made_on}}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label" for="less_than_30">Less than 30</label>
+                <div class="col-sm-9">
+                    <input readonly type="text" class="form-control-plaintext" name="less_than_30"{% if recipe.less_than_30 < 1 %}value="Yes"{% else %}value="No"{% endif %}>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

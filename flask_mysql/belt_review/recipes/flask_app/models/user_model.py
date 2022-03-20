@@ -1,9 +1,11 @@
+import imp
 from flask_app.config.mysqlconnection import MySQLConnection
 from flask import flash
-from flask_app.config.validator import Email
+from flask_app.config.validator import Email, Text_Field
+from flask_app.models import recipe_model
 
 class User:
-    db = "login_and_registration_schema" # Schema name here
+    db = "recipes_schema" # Schema name here
 
     def __init__(self, data): # layout instance attributes according to table column header
         self.id = data['id']
@@ -13,6 +15,7 @@ class User:
         self.password = data['password']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.recipes = []
     
 
 ############# Class Methods for interacting with the database #############
@@ -34,9 +37,29 @@ class User:
 
     @classmethod 
     def get_user(cls, data):
-        query =  "SELECT * FROM users WHERE id = %(id)s;"
+        query =  """SELECT * FROM users 
+                    LEFT JOIN recipes
+                    ON users.id = recipes.users_id
+                    WHERE users.id = %(id)s;"""
         returnedData = MySQLConnection(cls.db).query_db(query, data)
+        print(f"\n{returnedData}\n")
         user_instance = cls(returnedData[0])
+        
+        for row in returnedData:
+            if row['recipes.id']:
+                data = {
+                    "id" : row['recipes.id'],
+                    "users_id" : row["id"],
+                    "name" : row['name'],
+                    "description" : row['description'],
+                    "instructions" : row['instructions'],
+                    "made_on" : row['made_on'],
+                    "less_than_30" : row['less_than_30'],
+                    "created_at" : row['recipes.created_at'],
+                    "updated_at" : row['recipes.updated_at']
+                }
+                user_instance.recipes.append(recipe_model.Recipe(data))
+
         return user_instance
 
 #---------------------------------
@@ -79,7 +102,7 @@ class User:
     @staticmethod
     def validate_registration(data):
         valid_form = True
-        
+        name = Text_Field(2)
         if not Email.inspect(data['email']):
             flash('Invalid Email address!')
             valid_form = False
@@ -89,11 +112,11 @@ class User:
                 flash('Email already in database!')
                 return False
             
-        if len(data['first_name']) < 2:
+        if not name.inspect(data['first_name']):
             flash("First name must be at least 2 characters!")
             valid_form = False
 
-        if len(data['last_name']) < 2:
+        if not name.inspect(data['last_name']):
             flash("Last name must be at least 2 characters!")
             valid_form = False
 

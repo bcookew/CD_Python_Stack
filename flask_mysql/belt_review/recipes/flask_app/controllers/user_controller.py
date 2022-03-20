@@ -31,7 +31,7 @@ def login():
     
     session['user_id'] = user.id
     
-    return redirect('/user')
+    return redirect('/dashboard')
 
 #----------------------------------
 # ------------------------------------  Register Process
@@ -56,20 +56,20 @@ def registration():
 
     user_id = user_model.User.add_user(data)
     session["user_id"] = user_id
-    return redirect('/user')
+    return redirect('/dashboard')
 
 #----------------------------------
 # ------------------------------------  User Profile
 #----------------------------------
 
-@app.route('/user')
+@app.route('/dashboard')
 def load_profile():
     if "user_id" in session:
         data = {
             "id": session['user_id'] 
         }
         user = user_model.User.get_user(data)
-        return render_template('user.html', user = user)
+        return render_template('dashboard.html', user = user)
     else:
         flash("Access Denied!\nYou must log in!")
         return redirect('/')
