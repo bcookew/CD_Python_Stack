@@ -7,3 +7,5 @@ flask_mysql/crud/users_crud/node_modules
 flask_mysql/crud/users_crud.zip
 flask_mysql/crud/dojos_and_ninjas/node_modules
 flask_mysql/belt_review/recipes/node_modules
+flask_mysql/belt_review/recipes.zip
+flask_mysql/belt_review/recipes/Recipes_db.sql
