@@ -15,7 +15,7 @@ class Recipe:
         self.less_than_30 = data['less_than_30']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
-    
+
 
 ############# Class Methods for interacting with the database #############
 

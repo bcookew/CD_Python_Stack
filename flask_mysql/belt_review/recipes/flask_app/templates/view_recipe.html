@@ -47,7 +47,7 @@
             <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label" for="less_than_30">Less than 30</label>
                 <div class="col-sm-9">
-                    <input readonly type="text" class="form-control-plaintext" name="less_than_30"{% if recipe.less_than_30 < 1 %}value="Yes"{% else %}value="No"{% endif %}>
+                    <input readonly type="text" class="form-control-plaintext" name="less_than_30"{% if recipe.less_than_30 > 0 %}value="Yes"{% else %}value="No"{% endif %}>
                 </div>
             </div>
         </form>

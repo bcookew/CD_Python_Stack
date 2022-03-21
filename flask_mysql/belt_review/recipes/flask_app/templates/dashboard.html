@@ -37,7 +37,7 @@
                 {% for recipe in user.recipes %}
                 <tr>
                     <td>{{recipe.name}}</td>
-                    <td>{% if recipe.less_than_30 < 1 %}Yes{% else %}No{% endif %}</td>
+                    <td>{% if recipe.less_than_30 %}Yes{% else %}No{% endif %}</td>
                     <td>
                         <a href="/viewRecipe/{{recipe.id}}">View</a> - 
                         <a href="/editRecipe/{{recipe.id}}">Edit</a> - 
