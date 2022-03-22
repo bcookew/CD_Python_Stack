@@ -4,13 +4,7 @@ from flask_app.models import user_model
 from flask_bcrypt import Bcrypt
 bcrypt = Bcrypt(app)
 
-#----------------------------------
-# ------------------------------------  Home Page
-#----------------------------------
 
-@app.route('/')
-def home():  
-    return render_template('homepage.html')
 
 #----------------------------------
 # ------------------------------------  Login Process
