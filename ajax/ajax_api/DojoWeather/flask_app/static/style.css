@@ -1,0 +1,165 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    min-width: 700px;
+}
+/* screen width header */
+#siteHeader{
+    width: 100%;
+    height: fit-content;
+    background-color: #A4C6FA;
+}
+
+#siteHeaderContent{
+    width: 80%;
+    max-width: 1000px;
+    margin: 0px auto;
+    height: 75px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+}
+
+#siteHeaderContent > h1{
+    color: white;
+}
+
+.locations{
+    margin: 15px;
+    min-width: 250px;
+    color: white;
+}
+
+label {
+    font-size: 1.25rem;
+}
+
+select {
+    font-size: 1.25rem;
+}
+
+.locations ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.locations li{
+    margin: 0px 50px;
+}
+
+#pageHeader{
+    width: 80%;
+    max-width: 1000px;
+    height: 75px;
+    margin: 0px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#pageHeader h2{
+    font-size: 2rem;
+}
+
+  /* self-centering div */
+#container {
+width: 80%;
+max-width: 1000px;
+height: fit-content;
+margin: 0 auto;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.card{
+    min-height: fit-content;
+    background-color: #EEEEEE;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4% 1.75%;
+}
+
+.card h2{
+    font-size:1.5rem;
+}
+
+.card > p{
+    font-size: 1.25rem;
+}
+
+.temps{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.highTemp{
+    color: red;
+    font-size: 2rem;
+}
+
+.lowTemp{
+    color: blue;
+    font-size: 2rem;
+}
+
+.card img{
+    border-radius: 50%;
+    margin: 30px 10px;
+    width: 70%;
+}
+
+/* user cookie alert styling */
+
+#cookieAlert{
+    margin: 0px auto;
+    border: 3px solid black;
+    padding: 15px;
+    height: 85px;
+    max-width: 964px;
+    min-width: 700px;
+    position: fixed;
+    bottom: 0px;
+    left:0px;
+    right: 0px;
+    background-color: white;
+    justify-content: space-evenly;
+    font-size: 1.25rem;
+}
+
+#cookieAlert img{
+    height: 100%;
+    margin: 0px 15px;
+}
+
+#cookieAlert button{
+    margin: 0px 15px;
+    border: 3px solid black;
+    background-color: #44D1B2;
+    box-shadow: 3px 3px black;
+    color:white;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+    font-size: 1.3rem;
+    min-width: fit-content;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

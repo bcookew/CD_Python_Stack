@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Weather</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div id="siteHeader">
+        <div id="siteHeaderContent">
+            <h1>DojoWeather</h1>
+            <div class="locations">
+                <ul>
+                    <li class="city-link" value="91502">Burbank</li>
+                    <li class="city-link" value="60611">Chicago</li>
+                    <li class="city-link" value="75202">Dallas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="pageHeader">
+        <h2 id="city_name">Chicago</h2>
+        <div id="tempSys">
+            <label for="cOrF">show temperature in </label>
+            <select name="C or F" id="cOrF" onchange="tempConvert(this)">
+                <option value="C">&degC</option>
+                <option value="F">&degF</option>
+            </select>
+        </div>
+    </div>
+    <div id="container">
+        <div class="card" id="day0">
+            <h2>Today</h2>
+            <img src="./assets/some_rain.png" alt="some rain graphic">
+            <p class="description">some rain</p>
+            <div class="temps">
+                <p class="highTemp"><span class="temp">24</span>&deg;</p>
+                <p class="lowTemp"><span class="temp">18</span>&deg;</p>
+            </div>
+        </div>
+        <div class="card" id="day1">
+            <h2>Tomorrow</h2>
+            <img src="./assets/some_rain.png" alt="some rain graphic">
+            <p class="description">some rain</p>
+            <div class="temps">
+                <p class="highTemp"><span class="temp">27</span>&deg;</p>
+                <p class="lowTemp"><span class="temp">19</span>&deg;</p>
+            </div>
+        </div>
+        <div class="card" id="day2">
+            <h2>Saturday</h2>
+            <img src="./assets/some_rain.png" alt="some rain graphic">
+            <p class="description">some rain</p>
+            <div class="temps">
+                <p class="highTemp"><span class="temp">21</span>&deg;</p>
+                <p class="lowTemp"><span class="temp">16</span>&deg;</p>
+            </div>
+        </div>
+        <div class="card" id="day3">
+            <h2>Sunday</h2>
+            <img src="./assets/some_rain.png" alt="some rain graphic">
+            <p class="description">some rain</p>
+            <div class="temps">
+                <p class="highTemp"><span class="temp">26</span>&deg;</p>
+                <p class="lowTemp"><span class="temp">21</span>&deg;</p>
+            </div>
+        </div>
+        <div id="cookieAlert" class="row">
+            <img src="assets/cookie.png" alt="Alert">
+            <p>This site makes use of third-party cookies, by clicking "I Accept" you agree to the terms outlined in our
+                <a href="#">cookie policy</a>.
+            </p>
+            <button onclick="remEl('cookieAlert')">I Accept</button>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+    <script>
+        $(function(){
+            $('.city-link:first').click();
+        });
+    </script>
+</body>
+</html>
