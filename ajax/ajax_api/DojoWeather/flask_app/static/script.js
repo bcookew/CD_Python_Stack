@@ -38,6 +38,7 @@ async function get_location(zipcode) {
 async function get_weather(location_data) {
     var response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${location_data['lat']}&lon=${location_data['lon']}&exclude=minutely,hourly,alerts&appid=7119f6ee6d8eb24b6f371c9782b1ef5e&units=${tempFormat}`);
     var weather_data = await response.json();
+    console.log(weather_data);
     return weather_data;
 }
 
