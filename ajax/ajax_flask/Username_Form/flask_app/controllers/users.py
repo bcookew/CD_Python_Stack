@@ -6,15 +6,24 @@ from flask import render_template, jsonify, request, redirect
 def index():
     return render_template('index.html')
 
+@app.route('/users/<int:id>')
+def get_one_user(id):
+    data = {"id":id}
+    user = User.get_one_by_id(data)
+    print(user)
+    print(jsonify(user))
+    return jsonify(user)
 
 @app.route('/users')
 def users():
     return jsonify(User.get_all_json())
 
-@app.route('/create/user',methods=['POST'])
+@app.route('/create/user', methods=['POST'])
 def create_user():
+    print(request.form)
+    user = User.save(request.form)
     
-    pass
+    return jsonify(user)
 
 
 

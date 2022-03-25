@@ -15,12 +15,13 @@ class User:
         return connectToMySQL(cls.db).query_db(query,data)
 
     @classmethod
-    def get_one_by_user_name(cls,data):
-        query = "SELECT * FROM users WHERE user_name = %(user_name)s;"
+    def get_one_by_id(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
         results = connectToMySQL(cls.db).query_db(query,data)
         if not results:
             return False
-        return cls(results[0])
+        
+        return results[0]
 
     @classmethod
     def get_all_json(cls):
