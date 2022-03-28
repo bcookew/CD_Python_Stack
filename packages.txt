@@ -1,7 +1,7 @@
 npm install --save-dev grunt grunt-contrib-sass webp-converter jquery foundation-sites
 
 
-pipenv install flask pymysql flask-bcrypt
+pipenv install flask pymysql flask-bcrypt python-dotenv
 
 pipenv install flask 
 pipenv install pymysql
